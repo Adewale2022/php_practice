@@ -1,0 +1,23 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+
+
+try{
+	$mysqlconnect = new PDO("mysql:host=$servername", $username, $password);
+	// set the error mode exception
+	$mysqlconnect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$createsql_db = "CREATE DATABASE adewale_DB";
+
+	// use exec() since no result are returned
+	$mysqlconnect->exec($mysqlconnect);
+	echo "Database created successfully >br>";
+} catch(PDOEXCEPTION, $exception){
+	echo $createsql_db . "<br>" .$exception->getMessage();
+}
+
+$mysqlconnect = null;
+
+
+ ?>
